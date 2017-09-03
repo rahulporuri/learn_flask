@@ -1,16 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
-html_template = """
-<body>
-    <p>the todo list is </p>
-    <ul>
-        <li>{0}</li>
-        <li>{1}</li>
-</body>
-"""
 
 
 @app.route('/')
-def todolist():
-    return html_template.format('asdf', 'bdfg')
+def todolist(items=[]):
+    return render_template('todolist.html', items=['asdf', 'bdfg'])
